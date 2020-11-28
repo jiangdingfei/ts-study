@@ -66,4 +66,3 @@ const light: Light = {
 //   Success,
 //   Error
 // }
-
