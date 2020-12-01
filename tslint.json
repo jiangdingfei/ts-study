@@ -16,7 +16,8 @@
         "variable-name": [false],
         "one-line": [false],
         "forin": [false],
-        "no-shadowed-variable": [false]
+        "no-shadowed-variable": [false],
+        "ban-types": [false]
     },
     "rulesDirectory": []
 }

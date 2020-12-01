@@ -230,4 +230,88 @@ const tuple1: PromiseTuple = [
 ]
 
 // unknown ,3.0
-// 56.25
+// // 【1】仍和类型都可以复制给unknown类型
+let value1: unknown
+// value1 = 'a'
+// value1 = 123
+
+// [2] 如果没有类型断言或基于控制流的类型细化时，unknown不可以赋值给其他类型，此时他只能赋值给unknown自身或any类型
+let value2: unknown
+// let value3: string = value2
+
+// [3] 如果没有类断言或基于控制流的类型细化时，不能在他上面进行任何操作
+let value4: unknown
+// value4 += 1
+
+// [4] unknown与任何其他类型组成的交叉类型，最后都等于其他类型
+type type1 = string & unknown
+type type2 = unknown & string[]
+
+// [5] unknown 与仍和其他类型（除了any是any）组成的联合类型，都等于 unknown
+type type5 = unknown | string
+type type6 = any | unknown
+type type7 = number[] | unknown
+
+// [6] never类型是unknown都子类型
+type type8 = never extends unknown ? true : false
+
+// [7] keyof unknown 等于类型never
+type type9 = keyof unknown
+
+// [8] 只能对unknown进行等或不等操作，不能进行其他操作
+// value1 === value2
+// value1 !== value2
+// value1 += value2
+
+// [9] unknown类型等值不能访问他的属性、作为函数调用和作为类创建实例
+let value10: unknown
+// value10.age
+
+// [10] 使用映射类型时如果遍历的时unknown类型，则不会映射仍和属性
+type Types1<T> = {
+  [P in keyof T]: number
+}
+type Type11 = Types1<any>
+type Type12 = Types1<unknown>
+
+
+// 条件类型
+// T extends U ? X : Y
+type Types2<T> = T extends string ? string : number
+// let index: Types2<1>
+
+// 分布式条件类型
+// type TypeName<T> = T extends any ? T : never
+// type Type3 = TypeName<string | number>
+
+type TypeName<T> =
+    T extends string ? string :
+        T extends number ? number :
+            T extends boolean ? boolean :
+                T extends undefined ? undefined :
+                    T extends () => void ? () => void :
+                        object
+
+type Type4 = TypeName<() => void>
+type Type5 = TypeName<string[]>
+type Type6 = TypeName<(() => void) | string[]>
+
+type Diff<T, U> = T extends U ? never : T
+type Test2 = Diff<string | number | boolean, undefined | number>
+
+type Type7<T> = {
+[K in keyof T]: T[K] extends Function ? K : never
+}[keyof T]
+
+interface Part {
+  id: number;
+  name: string;
+  subparts(newName: string): void;
+  undatePart(newName: string): void;
+}
+type Test1 = Type7<Part>
+
+// 条件类型的类型推断
+
+// infer
+// 83
