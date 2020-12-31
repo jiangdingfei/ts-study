@@ -76,9 +76,9 @@ interface Type {
   f: null;
   g: object;
 }
-// keyof 返回接口属性类型不为never，undefined，null的属性名（好像有问题--undefiend, null 可以返回）
+// keyof 返回接口属性类型不为never的属性名（undefiend  null 可以返回）
 type Test = Type[keyof Type]
-// const worth: Test = undefined
+// type Aa =keyof Type
 
 // 映射类型
 // ts提供通过旧类型创建新类型
@@ -315,3 +315,38 @@ type Test1 = Type7<Part>
 
 // infer
 // 83
+type Type8<T> = T extends any[] ? T[number] : T
+type Test3 = Type8<string[]>
+type Test4 = Type8<string>
+
+type Type9<T> = T extends (infer U)[] ? U : T
+type Test5 = Type9<string[]>
+type Test6 = Type9<string>
+
+// 从T中选出不在U中的类型
+// Exclude<T, U>
+type Type10 = Exclude<'a' | 'b' | 'c', 'a' | 'b'>
+
+// 从T中选出可以赋值给U的类型
+// Extract<T, U>
+type Type121 = Extract<'a' | 'b' | 'c', 'a'| 'c'>
+
+// 从T中去掉null和undefined
+// NonNullable<T>
+type Type13 = NonNullable<string | number | undefined | null>
+
+// 获取函数类型返回值类型
+// ReturnType<T>
+type Type14 = ReturnType<() => string>
+type Type15 = ReadonlyType<() => void>
+
+// 获取构造函数实例的类型
+// InstanceType<T>
+class AClass {
+  constructor() {
+  }
+}
+type T1 = InstanceType<typeof AClass>
+type T2 = InstanceType<any>
+type T3 = InstanceType<never>
+// type T4 = InstanceType<string>
