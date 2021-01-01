@@ -12,3 +12,4 @@
 // import './example/advanced-type-2'
 import './modulles'
 // import './ts-module'
+// import './example/merging'
