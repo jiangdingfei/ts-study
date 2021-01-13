@@ -90,16 +90,19 @@
 // console.log(Point.getClassName())
 
 class Parent {
-    constructor () {
-      if (new.target === Parent) {
-        throw new Error('不能实例化')
-      }
+  constructor() {
+    if (new.target === Parent) {
+      throw new Error('不能实例化')
     }
+  }
 }
+
 class Child extends Parent {
   constructor() {
     super()
   }
 }
+
 const c = new Child()
+
 // const f = new Parent()

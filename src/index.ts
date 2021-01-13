@@ -1,3 +1,4 @@
+import './attempt';
 // import './example/basic-type'
 // import './example/symbol'
 // import './example/interface';
@@ -10,6 +11,7 @@
 // import './example/inference-compatibility'
 // import './example/advanced-type-1'
 // import './example/advanced-type-2'
-import './modulles'
+// import './modulles'
 // import './ts-module'
 // import './example/merging'
+import './example/decorators'

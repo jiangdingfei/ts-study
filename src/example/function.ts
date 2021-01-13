@@ -49,4 +49,4 @@ const user: User = {
     age: 666
 }
 // Error: 参数不匹配
-// const res = test(user, false)
+// const res = attempt(user, false)
