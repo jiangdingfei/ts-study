@@ -14,38 +14,46 @@ const data =  [
   132000,
   155000,
   159000,
-  160000
+  161000
 ]
 
-const formatArray = list => {
-  const _list = [];
-  const first = list[0].toString();
-  let temporary = {
-    value: first.slice(0, -4),
-    label: first.slice(0, -4),
-    children: [
-      {
-        value: first.slice(-4),
-        label: first.slice(-4)
-      }
-    ]
+const formatArray = data => {
+  if (data.length < 3) {
+    return data;
   }
-  list.slice(1).forEach((val, idx) => {
+  const res = []
+  let mark = -1;
+  let temporary = {
+    value: '',
+    children: [],
+  };
+  data.forEach((val, idx) => {
     const firstCol = val.toString().slice(0, -4);
     const secondCol = val.toString().slice(-4);
-    if (list.length === idx + 2) {
-      // youwenti
-      temporary.children.push({value: secondCol, label: secondCol})
-      _list.push({...temporary});
-    } else if (temporary.value === firstCol) {
-      temporary.children.push({value: secondCol, label: secondCol})
-    } else {
-      _list.push({...temporary})
+    if(idx === 0) {
+      // 第一项
       temporary.value = firstCol;
-      temporary.label = firstCol;
-      temporary.children = [{value: secondCol, label: secondCol}]
+      temporary.children = [{value: secondCol}];
+    } else if (idx === data.length-1) {
+      // 最后一项
+      if(temporary.value === firstCol) {
+        temporary.children.push({value: secondCol})
+      }  else {
+        res.push({...temporary})
+        temporary = {}
+        temporary.value = firstCol;
+        temporary.children = [{value: secondCol}]
+      }
+      res.push({...temporary});
+    } else if (temporary.value === firstCol) {
+      temporary.children.push({value: secondCol})
+    } else {
+      res.push({...temporary});
+      temporary = {};
+      temporary.value = firstCol;
+      temporary.children = [{value: secondCol}]
     }
   })
-  return _list
+  return res;
 }
-console.log(formatArray(data), 'data')
+console.log(formatArray(data), 'data111')
