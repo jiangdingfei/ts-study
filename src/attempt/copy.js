@@ -62,6 +62,8 @@ function merge(target, data) {
     return result
   } else if (typeof target === typeof data) {
     return  data
+  } else if ([undefined, null].includes(target) || [undefined, null].includes((data))) {
+    return data
   } else {
     throw new Error('入参错误');
   }
@@ -84,6 +86,7 @@ const data1 = {
     // birth: '1995-06-03',
     // sex: 'M',
     name: 'ls',
+    birth: null,
     conAddress: {
       address: [11,43,55],
       detailAddress: '水晶路'
@@ -104,7 +107,7 @@ const data2 = {
     },
   ],
   insurer: {
-    birth: '1995-06-03',
+    birth: '1980-01-05',
     sex: 'M',
     name: 'ls'
   },
@@ -112,6 +115,6 @@ const data2 = {
     3120: { planCode: '3120', sumIns: '10W'}
   }
 }
-console.log(merge(data1,data2))
+console.log(merge(data1,data2), 'merge')
 
 console.log(data1)
