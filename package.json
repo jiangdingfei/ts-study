@@ -27,6 +27,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "copy-webpack-plugin": "6.3.2",
+    "lodash": "^4.17.20",
     "moment": "^2.29.1"
   }
 }

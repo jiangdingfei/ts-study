@@ -56,4 +56,4 @@ const formatArray = data => {
   })
   return res;
 }
-console.log(formatArray(data), 'data111')
+// console.log(formatArray(data), 'data111')

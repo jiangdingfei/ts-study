@@ -38,8 +38,8 @@ const data = [
 const _data = copy(data)
 data[2].d[0] = 10
 data[1].b[1].m.h = 20;
-console.log(_data, 'data')
-console.log(data)
+// console.log(_data, 'data')
+// console.log(data)
 
 function merge(target, data) {
   if(Array.isArray(target) && Array.isArray(data)) {

@@ -1,3 +1,5 @@
+import './babel'
 import './promise'
 import './format'
 import './copy'
+import './generator'

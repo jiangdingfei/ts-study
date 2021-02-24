@@ -1,0 +1,1 @@
+declare module 'moment' // 快捷外部模块声明
