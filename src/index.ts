@@ -1,5 +1,5 @@
-// import './attempt';
-import './topic/demo'
+import './attempt';
+// import './topic/demo'
 // import './example/basic-type'
 // import './example/symbol'
 // import './example/interface';
@@ -18,4 +18,4 @@ import './topic/demo'
 // import './example/decorators'
 // import './example/mixin'
 // import './example/update'
-import './example/declaration-files'
+// import './example/declaration-files'
