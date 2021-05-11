@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "copy-webpack-plugin": "6.3.2",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1"
   }
 }
