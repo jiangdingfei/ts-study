@@ -1,3 +1,3 @@
 // export default 'lison';
 const name = 'lison'
-export = name;
+export default name;

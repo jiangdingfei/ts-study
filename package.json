@@ -5,7 +5,7 @@
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.dev.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.dev.js"
   },
   "keywords": [
@@ -16,19 +16,19 @@
     "email": "jdfzangtian@gmail.com"
   },
   "devDependencies": {
-    "clean-webpack-plugin": "^3.0.0",
-    "cross-env": "^7.0.2",
-    "html-webpack-plugin": "^4.3.0",
-    "ts-loader": "^7.0.5",
-    "tslint": "^6.1.2",
-    "typescript": "^3.9.6",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.5.3",
+    "ts-loader": "^9.4.3",
+    "tslint": "^6.1.3",
+    "typescript": "^5.1.3",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "copy-webpack-plugin": "6.3.2",
-    "lodash": "^4.17.20",
-    "moment": "^2.29.1"
+    "copy-webpack-plugin": "11.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4"
   }
 }

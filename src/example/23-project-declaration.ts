@@ -1,2 +1,2 @@
-import isArray = require('isarray');
+import isArray from 'isarray';
 console.log(isArray('aa'))

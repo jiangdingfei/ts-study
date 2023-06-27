@@ -42,11 +42,11 @@ interface User {
     age: number
 }
 
-declare function test(para: User): number
-declare function test(para: number, flag: boolean): number
-const user: User = {
-    name: "Jack",
-    age: 666
-}
+// declare function test(para: User): number
+// declare function test(para: number, flag: boolean): number
+// const user: User = {
+//     name: "Jack",
+//     age: 666
+// }
 // Error: 参数不匹配
 // const res = attempt(user, false)
