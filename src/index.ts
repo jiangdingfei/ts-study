@@ -1,4 +1,5 @@
-import './attempt';
+// import './attempt';
+import './example2';
 // import './topic/demo'
 // import './example/basic-type'
 // import './example/symbol'
